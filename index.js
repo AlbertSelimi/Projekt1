@@ -1,10 +1,19 @@
 let startBtn = document.getElementById('start');
 let stopBtn = document.getElementById('stop');
-let resetBtn = document.getElementById('reset');
-var ora = 00;
-var min = 00;
-var sek = 00;
-var msek = 00;
+let resetBtn = document.getElementById('reset')
+
+let Hours = 00;
+let Minutes = 00;
+let Seconds = 00;
+let Miliseconds = 00;
+
+let interval = null;
+
+let status = "stopped";
+
+let laps = null;
+let lapNow = null;
+
 startBtn.addEventListener('click', () =>  {
 	timer = true;
 	stopWatch();
@@ -14,48 +23,66 @@ stopBtn.addEventListener('click', () =>  {
 });
 resetBtn.addEventListener('click',  () => {
 	timer = false;
-	ora = 0;
-	min = 0;
-	sek = 0;
-	document.querySelectorAll('timer').innerHTML
+	Miliseconds = 0;
+	Seconds = 0;
+	Minutes = 0;
+	Hours = 0;
+
+	document.getElementById('timerHours').innerHTML = "00";
+	document.getElementById('timerMinutes').innerHTML = "00";
+	document.getElementById('timerSeconds').innerHTML = "00";
+	document.getElementById('timerMiliseconds').innerHTML = "00";
+      	
 });
 function stopWatch() {
 	if (timer) {
-		msek++;
-		if (msek == 100) {
-			sek++;
-			msek = 0;
+		Miliseconds++;
+		if (Miliseconds == 100) {
+			Seconds++;
+			Miliseconds = 0;
 		}
-		if (sek == 60) {
-			min++;
-			sek = 0;
+		if (Seconds == 60) {
+			Minutes++;
+			Seconds = 0;
 		}
-		if (min == 60) {
-			ora++;
-			min = 0;
-			sek = 0;
+		if (Minutes == 60) {
+			Hours++;
+			Minutes = 0;
+			Seconds = 0;
 		}
-		var oraString = ora;
-		var minString = min;
-		var sekString = sek;
-		var msekString = msek;
-		if (ora < 10) {
-			oraString = "0" + oraString;
+
+		var HoursString = Hours;
+		var MinutesString = Minutes;
+		var SecondsString = Seconds;
+		var MilisecondsString = Miliseconds;
+
+		if (Hours < 10) {
+			HoursString = "0" + HoursString;
 		}
-		if (min < 10) {
-			minString = "0" + minString;
+		if (Minutes < 10) {
+			MinutesString = "0" + MinutesString;
 		}
-		if (sek < 10) {
-			sekString = "0" + sekString;
+		if (Seconds < 10) {
+			SecondsString = "0" + SecondsString;
 		}
-		if (msek < 10) {
-			msekString = "0" + msekString;
+		if (Miliseconds < 10) {
+			MilisecondsString = "0" + MilisecondsString;
 		}
-		
-		 document.getElementById('ora').innerHTML = oraString;
-		 document.getElementById('min').innerHTML = minString;
-		 document.getElementById('sek').innerHTML = sekString;
-		 document.getElementById('msek').innerHTML = msekString;
-		setTimeout(stopWatch, 10);
+		 document.getElementById('Hours').innerHTML = HoursString;
+		 document.getElementById('Minutes').innerHTML = MinutesString;
+		 document.getElementById('Seconds').innerHTML = SecondsString;
+		 document.getElementById('Miliseconds').innerHTML = MilisecondsString;
+		 setTimeout(stopWatch, 10);
+
+
+         function lap() {
+
+			lapNow = Hours + " : " + Minutes + " : " + Seconds + " : " + Miliseconds; 
+			laps = document.getElementById('lapRecord').innerHTML + lapNow;
+	  
+			document.getElementById('lapRecord').innerHTML = laps;
+	
+		}
+
 	}
 }
