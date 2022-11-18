@@ -6,38 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StopWatch</title>
     <link rel="stylesheet" href="style.css" />
-    <h1>STOPWATCH</h1> 
+    <h1>STOPWATCH</h1>
   </head>
   <body>
     <div class="timer">
-    
       <div class="display">
-
-      <span class="digit" id="Hours"> 00</span>
-      <span class="txt">:</span>
-      <span class="digit" id="Minutes"> 00</span>
-      <span class="txt">:</span>
-      <span class="digit" id="Seconds"> 00</span>
-      <span class="txt">:</span>
-      <span class="digit" id="Miliseconds"> 00</span>
-    
+        <span class="digit" id="Hours"> 00</span>
+        <span class="txt">:</span>
+        <span class="digit" id="Minutes"> 00</span>
+        <span class="txt">:</span>
+        <span class="digit" id="Seconds"> 00</span>
+        <span class="txt">:</span>
+        <span class="digit" id="Miliseconds"> 00</span>
+      </div>
     </div>
-
     <div id="buttons">
       <button class="btn" id="start">Start</button>
       <button class="btn" id="stop">Stop</button>`
       <button class="btn" id="reset">Reset</button>
-      <button class="btn" id="Lap">Lap</button>
+      <button class="btn" id="lap">Lap</button>
+    </div>
+    <h2>Laps</h2>
+
+    <div class="laps">
+      <p id="lapRecord">Record Laps</p>
     </div>
 
-  </div>
-  <h2>Laps</h2>
-  
-  <div class="laps">
-   <p id="lapRecord"></p>
-
-</div>
-   
     <script src="index.js"></script>
   </body>
 </html>

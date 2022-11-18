@@ -1,7 +1,7 @@
 const startBtn = document.getElementById("start");
 const stopBtn = document.getElementById("stop");
 const resetBtn = document.getElementById("reset");
-const lapBtn = document.getElementById("laps");
+const lapBtn = document.getElementById("lap");
 const lapRecord = document.getElementById("lapRecord");
 
 let Hours = 00;
@@ -14,6 +14,8 @@ let interval = null;
 let status = "stopped";
 
 let lapNow = null;
+
+let lap = "null";
 
 startBtn.addEventListener("click", () => {
   timer = true;
@@ -36,6 +38,9 @@ resetBtn.addEventListener("click", () => {
   lapRecord.innerHTML = "";
   status = "stoped";
 });
+
+lapBtn.addEventListener("click", () => {});
+
 function stopWatch() {
   if (timer) {
     Miliseconds++;
@@ -75,16 +80,10 @@ function stopWatch() {
     document.getElementById("Seconds").innerHTML = SecondsString;
     document.getElementById("Miliseconds").innerHTML = MilisecondsString;
     setTimeout(stopWatch, 10);
-
-    function lap() {
-      lapNow = hours + " : " + minutes + " : " + seconds + " : " + miliseconds;
-      laps = document.getElementById("lapRecord").innerHTML + lapNow;
-
-      document.getElementById("lapRecord").innerHTML = laps;
-    }
-    lapBtn.addEventListener("click", lap);
-    startBtn.addEventListener("click", start);
-    resetBtn.addEventListener("click", reset);
-    stopBtn.addEventListener("click", stop);
   }
+}
+function laps() {
+  lapNow = Hours + " : " + Minutes + " : " + Seconds + " : " + Miliseconds;
+  laps.innerHTML + lapNow;
+  lapRecord.innerHTML = laps;
 }
